@@ -6,12 +6,13 @@
 <body>
   <h1>Lista de Productos</h1>
   <form method="GET">
-    Precio mínimo: <input type = "number" name="precio_min">
+    Precio mínimo: <input type="number" name="precio_min">
     Precio máximo: <input type="number" name="precio_max">
-    <button type="submit"> Filtrar </button>
+    <button type="submit">Filtrar</button>
   </form>
+
   <form method="GET">
-    Buscar : <input type = "text" name="q">
+    Buscar: <input type="text" name="q">
     <button type="submit">Buscar</button>
   </form>
   <ul>
@@ -22,17 +23,22 @@
   <div>
     {% if productos.has_previous %}
       <a href="?page={{ productos.previous_page_number }}">Anterior</a>
-    {% endif % }
-    
-    <span>Pagina {{productos.number}} de {{productos.paginator.num_pages}} </span>
-    {% if productos.has_next}
+    {% endif %}
+
+    <span>Página {{ productos.number }} de {{ productos.paginator.num_pages }}</span>
+
+    {% if productos.has_next %}
+      <a href="?page={{ productos.next_page_number }}">Siguiente</a>
+    {% endif %}
 
   </div>
+
   <!-- Enlace para agregar un nuevo producto -->
   <a href="{% url 'agregar_producto' %}">Agregar Nuevo Producto</a>
   <!-- Enlace para ver la lista de clientes -->
   <a href="{% url 'listar_clientes' %}">Ver Clientes</a>
   <!-- Enlace para volver a inicio -->
-  <a href="{% url 'inicio' %}">Volver a inicio </a>
+  <a href="{% url 'inicio' %}">Volver a inicio</a>
 </body>
 </html>
+
